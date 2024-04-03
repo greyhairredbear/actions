@@ -21,10 +21,6 @@ export function isCacheStrictMatch(): boolean {
     return getBooleanInput('gradle-home-cache-strict-match')
 }
 
-export function isCacheDebuggingEnabled(): boolean {
-    return process.env['GRADLE_BUILD_ACTION_CACHE_DEBUG_ENABLED'] ? true : false
-}
-
 export function isCacheCleanupEnabled(): boolean {
     return getBooleanInput('gradle-home-cache-cleanup')
 }

@@ -42,7 +42,8 @@ export function isCacheOverwriteExisting(): boolean {
 }
 
 export function isCacheDebuggingEnabled(): boolean {
-    return params.isCacheDebuggingEnabled()
+    return core.isDebug() 
+        ||  process.env['GRADLE_BUILD_ACTION_CACHE_DEBUG_ENABLED'] ? true : false
 }
 
 export function isCacheCleanupEnabled(): boolean {

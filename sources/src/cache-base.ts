@@ -268,7 +268,7 @@ export class GradleStateCache {
      * this method will give a detailed report of the Gradle User Home contents.
      */
     private async debugReportGradleUserHomeSize(label: string): Promise<void> {
-        if (!isCacheDebuggingEnabled() && !core.isDebug()) {
+        if (!isCacheDebuggingEnabled()) {
             return
         }
         if (!fs.existsSync(this.gradleUserHome)) {

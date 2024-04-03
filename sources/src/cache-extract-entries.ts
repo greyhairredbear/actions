@@ -8,7 +8,7 @@ import * as params from './input-params'
 
 import {META_FILE_DIR} from './cache-base'
 import {CacheEntryListener, CacheListener} from './cache-reporting'
-import {cacheDebug, getCacheKeyPrefix, hashFileNames, restoreCache, saveCache, tryDelete} from './cache-utils'
+import {cacheDebug, getCacheKeyPrefix, hashFileNames, isCacheDebuggingEnabled, restoreCache, saveCache, tryDelete} from './cache-utils'
 import {BuildResult, loadBuildResults} from './build-results'
 
 const SKIP_RESTORE_VAR = 'GRADLE_BUILD_ACTION_SKIP_RESTORE'
@@ -261,7 +261,7 @@ abstract class AbstractEntryExtractor {
 
     // Run actions sequentially if debugging is enabled
     private async awaitForDebugging(p: Promise<ExtractedCacheEntry>): Promise<ExtractedCacheEntry> {
-        if (params.isCacheDebuggingEnabled()) {
+        if (isCacheDebuggingEnabled()) {
             await p
         }
         return p
